@@ -1,0 +1,106 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10pt;
+    background: white;
+}
+
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.main {
+    width: 86vw;
+    background-color: #f6f6ef;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ff6610;
+    padding: 2px;
+}
+
+.brand {
+    display: flex;
+    font-weight: 900;
+    align-items: center;
+}
+
+.brand img {
+    border: 1px solid white;
+    margin-right: 4px;
+}
+
+.header-menu {
+    margin-left: 14px;
+    flex: 1;
+}
+
+.menu-item {
+    padding: 0px 5px;
+    position: relative;
+}
+
+.menu-item:not(:last-child):after {
+    position: absolute;
+    content: "|";
+    right: 0;
+    left: 100%;
+}
+
+a.auth {
+    padding: 0px 6px;
+}
+
+.main-stories {
+    padding: 6px 0px;
+}
+
+.story {
+    padding: 4px 8px;
+    display: flex;
+}
+
+.content {
+    flex: 1;
+}
+
+.sn {
+    flex: 0 0 5%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4px;
+}
+
+.sn span {
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.muted {
+    color: #828282;
+}
+
+.small {
+    font-size: 76%;
+}
