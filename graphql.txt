@@ -1,0 +1,22 @@
+# Welcome to GraphQLHub! Type your GraphQL query here, or
+# explore the "Docs" to the right
+
+{
+  hn {
+    topStories(limit: 30) {
+      id
+      type,
+      by {
+        id
+        created
+        about
+      },
+      time,
+      text,
+      dead,
+      url,
+      score,
+      title
+    }
+  }
+}
