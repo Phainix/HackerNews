@@ -91,7 +91,7 @@ a.auth {
 }
 
 .sn {
-    flex: 0 0 5%;
+    flex: 0 0 36px;
     display: flex;
     justify-content: flex-end;
     padding-right: 4px;
