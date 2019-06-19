@@ -1,7 +1,6 @@
 import { request } from 'graphql-request';
 import * as psl from 'psl';
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en';
+import * as moment from 'moment';
 
 const query = `{
     hn {
@@ -27,11 +26,19 @@ const query = `{
 
 request('https://www.graphqlhub.com/graphql', query).then((data) => {
   let container = document.getElementById('main-stories');
-  TimeAgo.addLocale(en);
-  const timeAgo = new TimeAgo('en-ZA');
+  
   data.hn.topStories.forEach((element,index) => {
-    let parsedUrl = new URL(element.url);
-    let domain = psl.get(parsedUrl.hostname);
+    let url = '';
+
+    if(element.url != null && element.url != '') {
+      let parsedUrl = new URL(element.url);
+      let domain = psl.get(parsedUrl.hostname);
+      url = `(<a href="javascript:void(0)">${domain}</a>)`;
+    } else {
+      url = '';
+    }
+
+
     let date = new Date(element.timeISO);
     let story = document.createElement('div');
     story.classList = 'story';
@@ -43,10 +50,10 @@ request('https://www.graphqlhub.com/graphql', query).then((data) => {
         <div class="content">
             <div class="title">
                 <a href="javascript:void(0)">${element.title}</a> 
-                <span class="muted small">(<a href="javascript:void(0)">${domain}</a>)</span>
+                <span class="muted small">${url}</span>
             </div>
             <div class="desc muted small">
-            ${element.score} points by <a href="javascript:void(0)">${element.by.id}</a> <a href="javascript:void(0)">${timeAgo.format(date)}</a> | <a href="javascript:void(0)">hide</a> | <a href="javascript:void(0)">${parseInt(element.descendants)} comments</a>
+            ${element.score} points by <a href="javascript:void(0)">${element.by.id}</a> <a href="javascript:void(0)">${moment(date).fromNow()}</a> | <a href="javascript:void(0)">hide</a> | <a href="javascript:void(0)">${parseInt(element.descendants)} comments</a>
             </div>
         </div>
     `;
