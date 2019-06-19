@@ -39,10 +39,14 @@ a {
     padding: 2px;
 }
 
-.brand {
+a.brand {
     display: flex;
+}
+
+.brand {
     font-weight: 900;
     align-items: center;
+    font-size: 10pt;
 }
 
 .brand img {
@@ -51,12 +55,14 @@ a {
 }
 
 .header-menu {
-    margin-left: 14px;
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .menu-item {
-    padding: 0px 5px;
+    padding: 0px 8px;
     position: relative;
 }
 
@@ -64,7 +70,7 @@ a {
     position: absolute;
     content: "|";
     right: 0;
-    left: 100%;
+    left: 96%;
 }
 
 a.auth {
@@ -92,6 +98,7 @@ a.auth {
 
 .sn {
     flex: 0 0 36px;
+    width: 36px;
     display: flex;
     justify-content: flex-end;
     padding-right: 4px;
@@ -105,6 +112,10 @@ a.auth {
 
 .muted {
     color: #828282;
+}
+
+a.muted:hover , .muted a:hover {
+    text-decoration: underline;
 }
 
 .small {
@@ -122,4 +133,45 @@ a.auth {
 .search {
     padding: 8px;
     padding-top: 10px;
+}
+
+.bottom-menu {
+    text-align: center;
+}
+
+input[name=search] {
+    background: #fff;
+    opacity: 1;
+    border: 1px solid transparent;
+}
+
+@media (max-width: 750px) {
+    body {
+        margin: 0;
+    }
+    .main {
+        width: 100vw;
+    }
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input[name=search] {
+        width: 100%;
+    }
+    .header-menu .brand {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        font-size: 9pt;
+    }
+    .sn {
+        flex: 0 0 30px;
+        width: 26px;
+    }
 }
