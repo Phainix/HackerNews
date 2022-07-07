@@ -24,7 +24,7 @@
   "homepage": "https://github.com/Phainix/HackerNews#readme",
   "dependencies": {
     "graphql-request": "^1.8.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "psl": "^1.1.32"
   },
   "devDependencies": {
